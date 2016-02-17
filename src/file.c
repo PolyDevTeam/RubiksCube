@@ -143,9 +143,9 @@ void translateRotation(miniCube cube[6][N][N], char car, int direction) {
         break;
         case 'L':
             if(direction == DIRECTION_NORMAL)
-                left_rotation_reverse(cube);
-            else
                 left_rotation(cube);
+            else
+                left_rotation_reverse(cube);
             break;
         case 'F':
             if(direction == DIRECTION_NORMAL)
@@ -171,9 +171,9 @@ void translateRotation(miniCube cube[6][N][N], char car, int direction) {
         break;
         case 'D':
             if(direction == DIRECTION_NORMAL)
-                down_rotation_reverse(cube);
-            else
                 down_rotation(cube);
+            else
+                down_rotation_reverse(cube);
         break;
         case 'M':
             if(direction == DIRECTION_NORMAL)
@@ -203,10 +203,10 @@ void translateRotation(miniCube cube[6][N][N], char car, int direction) {
         break;
         case 'E':
             if(direction == DIRECTION_NORMAL) {
-                middle_horizontal_rotation_reverse(cube);
+                middle_horizontal_rotation(cube);
             }
             else {
-                middle_horizontal_rotation(cube);
+                middle_horizontal_rotation_reverse(cube);
             }
         break;
         case 'f':

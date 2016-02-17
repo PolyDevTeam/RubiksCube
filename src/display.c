@@ -347,27 +347,35 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
                 switch(selectRotation) {
                     case 0:
                         up_rotation(cube);
+                        printf("U");
                     break;
                     case 1:
                         up_rotation_reverse(cube);
+                        printf("U'");
                     break;
                     case 2:
                         left_rotation(cube);
+                        printf("L");
                     break;
                     case 3:
                         left_rotation_reverse(cube);
+                        printf("L'");
                     break;
                     case 4:
                         front_rotation(cube);
+                        printf("F");
                     break;
                     case 5:
                         front_rotation_reverse(cube);
+                        printf("F'");
                     break;
                     case 6:
                         right_rotation(cube);
+                        printf("R");
                     break;
                     case 7:
                         right_rotation_reverse(cube);
+                        printf("R'");
                     break;
                     case 8:
                         cube_rotation_side(cube);
@@ -375,6 +383,7 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
                         front_rotation(cube);
                         cube_rotation_side(cube);
                         cube_rotation_side(cube);
+                        printf("B");
                     break;
                     case 9:
                         cube_rotation_side(cube);
@@ -382,46 +391,59 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
                         front_rotation_reverse(cube);
                         cube_rotation_side(cube);
                         cube_rotation_side(cube);
+                        printf("B'");
                     break;
                     case 10:
                         down_rotation(cube);
+                        printf("D");
                     break;
                     case 11:
                         down_rotation_reverse(cube);
+                        printf("D'");
                     break;
                     case 12:
                         middle_vectical_rotation(cube);
+                        printf("M");
                     break;
                     case 13:
                         middle_vectical_rotation_reverse(cube);
+                        printf("M'");
                     break;
                     case 14:
                         middle_horizontal_rotation(cube);
+                        printf("E");
                     break;
                     case 15:
                         middle_horizontal_rotation_reverse(cube);
+                        printf("E'");
                     break;
                     case 16:
                         middle_rotation_side(cube);
+                        printf("S");
                     break;
                     case 17:
                         middle_rotation_side_reverse(cube);
+                        printf("S'");
                     break;
                     case 18:
                         cube_rotation_upside_down(cube);
+                        printf("X");
                     break;
                     case 19:
                         cube_rotation_upside_down(cube);
                         cube_rotation_upside_down(cube);
                         cube_rotation_upside_down(cube);
+                        printf("X'");
                     break;
                     case 20:
                         cube_rotation_side(cube);
+                        printf("Y");
                     break;
                     case 21:
                         cube_rotation_side(cube);
                         cube_rotation_side(cube);
                         cube_rotation_side(cube);
+                        printf("Y'");
                     break;
                     case 22:
                         cube_rotation_side(cube);
@@ -431,6 +453,7 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
                         cube_rotation_side(cube);
                         middle_rotation_side(cube);
                         front_rotation(cube);
+                        printf("Z");
                     break;
                     case 23:
                         cube_rotation_side(cube);
@@ -440,10 +463,12 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
                         cube_rotation_side(cube);
                         middle_rotation_side_reverse(cube);
                         front_rotation_reverse(cube);
+                        printf("Z'");
                     break;
                     default: break;
                 }
             }
+            printf("\nFINI\n");
         }
         break;
         default: break;

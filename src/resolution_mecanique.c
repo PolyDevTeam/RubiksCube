@@ -269,11 +269,9 @@ void white_cross(miniCube cube[6][N][N]) {
 		left_rotation(cube);
 	}
 	if (pos == 19) {
-		down_rotation_reverse(cube);
-		left_rotation(cube);
-		front_rotation_reverse(cube);
-		down_rotation_reverse(cube);
-		front_rotation(cube);
+		up_rotation_reverse(cube);
+		left_rotation_reverse(cube);
+		up_rotation(cube);
 	}
 	if (pos == 28) {
 		down_rotation(cube);
@@ -465,6 +463,8 @@ void white_cross(miniCube cube[6][N][N]) {
 		front_rotation_reverse(cube);
 		right_rotation(cube);
 		front_rotation(cube);
+		right_rotation_reverse(cube);
+		right_rotation_reverse(cube);
 	}
 	if (pos == 50) {
 		front_rotation(cube);
@@ -1453,9 +1453,11 @@ void second_line_3 (miniCube cube[6][N][N]) {
 	}
 	if (pos == 32) {
 		cube_rotation_side(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
+		down_rotation(cube);
+		down_rotation(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 	if (pos == 34) {
@@ -1676,7 +1678,7 @@ void yellow_cross_right_orientation (miniCube cube[6][N][N], int p) {
 	}
 
 	if (pos1 != 1 || pos2 != 37 || pos3 != 46) {
-		if (pos1 == 1 || pos3 == 46) {
+		if (pos1 == 1) {
 			cube_rotation_side(cube);
 			yellow_cross_right_orientation(cube, 112);
 			
@@ -1685,6 +1687,10 @@ void yellow_cross_right_orientation (miniCube cube[6][N][N], int p) {
 			cube_rotation_side(cube);
 			cube_rotation_side(cube);
 			yellow_cross_right_orientation(cube, 312);
+		}
+		if (pos3 == 46) {
+			yellow_cross_orientation(cube);
+			yellow_cross_right_orientation(cube, 212);
 		}
 	}
 
@@ -1894,6 +1900,14 @@ void resolution_mecanique (miniCube cube[6][N][N]) {
 	cube_rotation_upside_down(cube);
 	yellow_cross(cube);
 	yellow_cross_right_orientation(cube, 212);
+
+	pos = recherche_case(cube, 211);
+
+	while (pos != 13) {
+		cube_rotation_side(cube);
+		pos = recherche_case(cube, 211);
+	}
+
 	yellow_corners_right_placement(cube, 400);
 
 	pos = recherche_case(cube, 211);
