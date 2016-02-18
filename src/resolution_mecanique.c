@@ -269,9 +269,9 @@ void white_cross(miniCube cube[6][N][N]) {
 		left_rotation(cube);
 	}
 	if (pos == 19) {
-	    up_rotation_reverse(cube);
-	    left_rotation_reverse(cube);
-	           up_rotation(cube);
+		up_rotation_reverse(cube);
+		left_rotation_reverse(cube);
+		up_rotation(cube);
 	}
 	if (pos == 28) {
 		down_rotation(cube);
@@ -383,7 +383,7 @@ void white_cross(miniCube cube[6][N][N]) {
 		right_rotation_reverse(cube);
 	}
 	if (pos == 28) {
-		down_rotation(cube);
+		down_rotation_reverse(cube);
 		right_rotation(cube);
 	}
 	if (pos == 34) {
@@ -457,6 +457,7 @@ void white_cross(miniCube cube[6][N][N]) {
 	if (pos == 41) {
 		right_rotation(cube);
 		down_rotation(cube);
+		right_rotation_reverse(cube);
 	}
 	if (pos == 48) {
 		right_rotation(cube);
@@ -904,6 +905,7 @@ void white_face(miniCube cube[6][N][N]) {
 		front_rotation_reverse(cube);
 		cube_rotation_side(cube);
 		cube_rotation_side(cube);
+		cube_rotation_side(cube);
 	}
 	if (pos == 44) {
 		 cube_rotation_side(cube);
@@ -1036,10 +1038,12 @@ void white_face(miniCube cube[6][N][N]) {
 	}
 	if (pos == 36) {
 		right_rotation_reverse(cube);
+		down_rotation(cube);
+		right_rotation(cube);
+		down_rotation_reverse(cube);
 		left_rotation_reverse(cube);
 		down_rotation(cube);
 		left_rotation(cube);
-		right_rotation(cube);
 	}
 	if (pos == 6) {
 		down_rotation_reverse(cube);
@@ -1126,7 +1130,7 @@ void white_face(miniCube cube[6][N][N]) {
 		right_rotation(cube);
 	}
 
-			/* recherche de la position de la case 022 */
+	/* recherche de la position de la case 022 */
 	pos = recherche_case(cube, 22);
 
 	if (pos == 11) {
@@ -1235,6 +1239,18 @@ void white_face(miniCube cube[6][N][N]) {
 		down_rotation(cube);
 		down_rotation(cube);
 		front_rotation_reverse(cube);
+	}
+	if (pos == 45) {
+		up_rotation(cube);
+		right_rotation_reverse(cube);
+		down_rotation(cube);
+		right_rotation(cube);
+		down_rotation_reverse(cube);
+		down_rotation_reverse(cube);
+		front_rotation(cube);
+		down_rotation(cube);
+		front_rotation_reverse(cube);
+		up_rotation_reverse(cube);
 	}
 }
 
@@ -1365,35 +1381,35 @@ void second_line_2 (miniCube cube[6][N][N]) {
 		second_line_left(cube);
 	}
 	if (pos == 28) {
-		down_rotation_reverse(cube);
+		down_rotation(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 	if (pos == 32) {
 		cube_rotation_side(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
+		down_rotation(cube);
+		down_rotation(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 	if (pos == 34) {
-		down_rotation(cube);
+		down_rotation_reverse(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 	if (pos == 30) {
-		down_rotation(cube);
-		down_rotation(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 }
@@ -1444,11 +1460,11 @@ void second_line_3 (miniCube cube[6][N][N]) {
 		second_line_left(cube);
 	}
 	if (pos == 28) {
-		down_rotation_reverse(cube);
+		down_rotation(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 	if (pos == 32) {
@@ -1471,12 +1487,10 @@ void second_line_3 (miniCube cube[6][N][N]) {
 		second_line_right(cube);
 	}
 	if (pos == 30) {
-		down_rotation(cube);
-		down_rotation(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 		cube_rotation_side(cube);
 	}
 }
@@ -1582,8 +1596,15 @@ void yellow_cross (miniCube cube[6][N][N]) {
 	pos3 = recherche_case(cube, 412);
 	pos4 = recherche_case(cube, 421);
 
-	if (pos1 == 25 && pos2 == 23 && pos3 == 21 && pos4 == 19) {
-		return ;
+	/* si la croix est déjà faite on sort de la fonction */
+	if (pos1 == 25 || pos1 == 23 || pos1 == 21 || pos1 == 19) {
+		if (pos2 == 25 || pos2 == 23 || pos2 == 21 || pos2 == 19) {
+			if (pos3 == 25 || pos3 == 23 || pos3 == 21 || pos3 == 19) {
+				if (pos4 == 25 || pos4 == 23 || pos4 == 21 || pos4 == 19) {
+					return;
+				}
+			}
+		}
 	}
 
 	if (pos1 == 25 || pos2 == 25 || pos3 == 25 || pos4 == 25) {
@@ -1678,7 +1699,7 @@ void yellow_cross_right_orientation (miniCube cube[6][N][N], int p) {
 	}
 
 	if (pos1 != 1 || pos2 != 37 || pos3 != 46) {
-	    if (pos1 == 1) {
+		if (pos1 == 1) {
 			cube_rotation_side(cube);
 			yellow_cross_right_orientation(cube, 112);
 			
@@ -1689,8 +1710,8 @@ void yellow_cross_right_orientation (miniCube cube[6][N][N], int p) {
 			yellow_cross_right_orientation(cube, 312);
 		}
 		if (pos3 == 46) {
-		    yellow_cross_orientation(cube);
-		    yellow_cross_right_orientation(cube, 212);
+			yellow_cross_orientation(cube);
+			yellow_cross_right_orientation(cube, 212);
 		}
 	}
 
@@ -1900,12 +1921,14 @@ void resolution_mecanique (miniCube cube[6][N][N]) {
 	cube_rotation_upside_down(cube);
 	yellow_cross(cube);
 	yellow_cross_right_orientation(cube, 212);
+
 	pos = recherche_case(cube, 211);
 
 	while (pos != 13) {
-	     cube_rotation_side(cube);
-	     pos = recherche_case(cube, 211);
+		cube_rotation_side(cube);
+		pos = recherche_case(cube, 211);
 	}
+
 	yellow_corners_right_placement(cube, 400);
 
 	pos = recherche_case(cube, 211);
@@ -1916,7 +1939,7 @@ void resolution_mecanique (miniCube cube[6][N][N]) {
 	}
 
 	yellow_corners_right_orientation(cube, 400);
-	
+
 	pos = recherche_case(cube, 211);
 	while (pos != 13) {
 		cube_rotation_side(cube);
@@ -1934,4 +1957,6 @@ void resolution_mecanique (miniCube cube[6][N][N]) {
 	}
 
 	cube_rotation_upside_down(cube);
+
+	cubeRotation(cube, "Y");
 }
